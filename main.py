@@ -34,10 +34,10 @@ def is_won():
         res.append(g[f"c{i}"])
 
    
-    if len([i for i in res if i==12])!=0:
+    if len([i for i in res if i==12]):
         winner=0
         return True, winner
-    elif len([i for i in res if i==3])!=0:
+    elif len([i for i in res if i==3]):
         winner=1
         return True, winner
     else:
