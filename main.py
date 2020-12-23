@@ -70,7 +70,6 @@ def on_mouse_down(pos):
             else:
                 sys.exit()
         elif not(is_won()) and tour==9:
-            print("égalité")
             if eg.boolbox(msg="Égalité ! \n Rejouer ?",choices=["Oui","Non"]):
                 screen.clear()
                 grid=np.zeros([3,3])
