@@ -15,7 +15,6 @@ HEIGHT = 900
 
 
 grid = np.zeros([3,3])
-#grid = np.array(range(1,10)).reshape(3,3)
 datajoueurs = {"0":{"value":"4","sym":"o","color":"lightblue"},"1":{"value":"1","sym":"x","color":"red"}}
 rang = [0,1,2]
 g=globals()
