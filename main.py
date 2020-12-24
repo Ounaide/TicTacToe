@@ -15,19 +15,20 @@ HEIGHT = 900
 
 
 grid = np.zeros([3,3]) #initialize with an empty grid
-datajoueurs = {"0":{"value":"4","sym":"o","color":"lightblue"},"1":{"value":"1","sym":"x","color":"red"}} # x value is 1, o value is 4 !!
+datajoueurs = {"0":{"value":"4","sym":"o","color":"lightblue"},
+               "1":{"value":"1","sym":"x","color":"red"}} # x value is 1, o value is 4 !!
 rang = [0,1,2]
 g=globals()
 player=np.random.randint(0,2) #starting player = random
 tour=0
 TITLE="Joueur qui commence: "+ datajoueurs[str(player)]["sym"]
 
-def is_won():
+def is_won(): #check the sum of every row/column/diagonal of the matrix
     global res
     d1=np.sum(grid.diagonal())
     d2=np.sum(np.fliplr(grid).diagonal())
     res=[d1,d2]
-    for i in rang: #check the sum of every row/column/diagonal of the matrix
+    for i in rang: 
         g[f"l{i}"]=np.sum(grid[i])
         g[f"c{i}"]=np.sum(grid.T[i])
         res.append(g[f"l{i}"])
