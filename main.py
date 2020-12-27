@@ -22,6 +22,7 @@ g=globals()
 player=np.random.randint(0,2) #starting player = random
 tour=0
 TITLE="Joueur qui commence: "+ datajoueurs[str(player)]["sym"]
+mirror = lambda x: (HEIGHT/3)*x + (HEIGHT/6)
 
 def is_won(): #check the sum of every row/column/diagonal of the matrix
     global res
@@ -61,7 +62,7 @@ def on_mouse_down(pos):
     if grid[posgrid[0]][posgrid[1]]==0: #cannot click if the spot is already taken
         tour+=1
         grid[posgrid[0]][posgrid[1]]=datajoueurs[str(player)]["value"] #add the corresponding value of the click (1 or 4) to the matrix
-        screen.draw.text(datajoueurs[str(player)]["sym"],center=(posgrid[1]*300+150,posgrid[0]*300+150),color=datajoueurs[str(player)]["color"],fontsize=300) #draw the player's symbol in the middle of its square no matter where he clicked
+        screen.draw.text(datajoueurs[str(player)]["sym"],center=(mirror(posgrid[1]),mirror(posgrid[0])),color=datajoueurs[str(player)]["color"],fontsize=300) #draw the player's symbol in the middle of its square no matter where he clicked
         player^=1 #switch players
         if is_won(): #check for a win
             if eg.boolbox(msg=f"Victoire du joueur {is_won()[1]+1} ({datajoueurs[str(is_won()[1])]['sym']}) \n Rejouer ?",choices=["Oui","Non"]):
